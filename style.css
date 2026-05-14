@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap");
+
+:root {
+  --background-color: #080a0f;
+  --navbar-color: rgba(10, 12, 20, 0.75);
+  --surface: #0f1420;
+  --hover: #161c2e;
+  --text-primary: #f0f2f8;
+  --text-secondary: #8a90a8;
+  --accent: #4a7eff;
+  --mars: #e8512a;
+  --moon: #c8cfe0;
+  --main-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter",
+    sans-serif;
+  --title-font: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+  --transition: all 0.35s ease;
+  --text-animation: fadeUp 0.8s ease 0.3s forwards;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  font-family: var(--main-font);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Navigation ── */
+
+.header-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--navbar-color);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  padding: 18px 48px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navigation {
+  font-family: var(--title-font);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -1px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  transition: var(--transition);
+  position: relative;
+}
+
+/* Line shows after highlighted */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0px;
+  height: 1px;
+  background: var(--accent);
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+#theme-toggle {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Main content ── */
+
+.main-content {
+  text-align: center;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 220px);
+  padding: 0 40px;
+  position: relative;
+}
+
+.main-content h1 {
+  position: relative;
+  z-index: 1;
+  font-family: var(--title-font);
+  font-size: 160px;
+  font-weight: 300;
+  letter-spacing: -6px;
+  line-height: 1;
+  color: var(--text-primary);
+  opacity: 0;
+  animation: var(--text-animation);
+}
+
+.main-content h3 {
+  position: relative;
+  z-index: 1;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-top: 28px;
+  letter-spacing: 0px;
+  opacity: 0;
+  animation: var(--text-animation);
+}
+
+/* ── Buttons ── */
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding-bottom: 60px;
+  opacity: 0;
+  animation: var(--text-animation);
+}
+
+.buttons a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 11px 32px;
+  border-radius: 999px;
+  transition: var(--transition);
+}
+
+#moon-button {
+  background: rgba(200, 207, 224, 0.08);
+  color: var(--moon);
+  border: 1px solid rgba(200, 207, 224, 0.2);
+}
+
+#moon-button:hover {
+  background: rgba(200, 207, 224, 0.14);
+  border-color: rgba(200, 207, 224, 0.35);
+}
+
+#mars-button {
+  background: rgba(232, 81, 42, 0.12);
+  color: #f47d5e;
+  border: 1px solid rgba(232, 81, 42, 0.3);
+}
+
+#mars-button:hover {
+  background: rgba(232, 81, 42, 0.2);
+  border-color: rgba(232, 81, 42, 0.5);
+}
+
+/* ── Animations ── */
+
+/* Moves up */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
