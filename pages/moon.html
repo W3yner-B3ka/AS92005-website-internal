@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,9 +8,12 @@
     />
     <link rel="stylesheet" href="../style.css" />
     <script src="../script.js" defer></script>
+    <script src="../three.js" type="module" defer></script>
     <title>Moon</title>
   </head>
   <body>
+    <!-- 3d canvas -->
+    <canvas id="scene"></canvas>
     <!-- Header for the top of the navigation -->
     <div class="header-navigation">
       <h2 class="navigation">Lunara</h2>
@@ -24,10 +26,14 @@
         </ul>
       </nav>
       <!-- Change-theme button -->
-      <button class="theme-toggle" aria-label="Toggle theme">
+      <button id="theme-toggle" aria-label="Toggle theme">
         <i class="bi bi-moon"></i>
       </button>
     </div>
-    <h1>Moon</h1>
+    <section class="sections">
+      <div class="moon-content">
+        <h1>The Moon</h1>
+      </div>
+    </section>
   </body>
 </html>

@@ -21,3 +21,22 @@ window.addEventListener("load", () => {
     document.body.classList.add("light-theme");
   }
 });
+
+// Scroll animation
+//For each element with the class "hidden",
+// observe when it enters the viewport
+// and add the "animate" class to trigger the animation.
+//  Remove the "animate" class when it leaves the viewport.
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry);
+    if (entry.isIntersecting) {
+      entry.target.classList.add("animate");
+    } else {
+      entry.target.classList.remove("animate");
+    }
+  });
+});
+
+const hiddenElements = document.querySelectorAll(".hidden");
+hiddenElements.forEach((el) => observer.observe(el));
