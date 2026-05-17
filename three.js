@@ -1,11 +1,15 @@
 import * as THREE from "https://esm.sh/three@0.160.0";
-import { OrbitControls } from "https://esm.sh/three@0.160.0/examples/jsm/controls/OrbitControls.js";
 
 // Planet defines which texture to load,
 // set in the HTML as a data attribute on the body element
 const planet = document.body.dataset.planet;
 
 const canvas = document.getElementById("scene");
+
+// Get the position data from the HTML data attributes
+const sections = document.querySelectorAll(".sections");
+const sphereTarget = new THREE.Vector3(0, 0, 0);
+const cameraZTarget = { z: 10 };
 
 const scene = new THREE.Scene();
 
@@ -26,8 +30,6 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0x000000, 0);
-
-const controls = new OrbitControls(camera, renderer.domElement);
 
 // ----------------------
 // TEXTURE LOGIC
@@ -98,10 +100,32 @@ Array(200).fill().forEach(addStar);
 function animate() {
   requestAnimationFrame(animate);
 
-  sphere.rotation.y += 0.01;
-  controls.update();
+  sphere.rotation.y += 0.002;
 
+  sphere.position.lerp(sphereTarget, 0.05); // move smoothly towards target
+  camera.position.z += (cameraZTarget.z - camera.position.z) * 0.05; //zoom in/out smoothly
+  camera.lookAt(0, 0, 0); // always look at the sphere
   renderer.render(scene, camera);
 }
-
 animate();
+
+// Observer
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const x = parseFloat(entry.target.dataset.px);
+        const y = parseFloat(entry.target.dataset.py);
+        const z = parseFloat(entry.target.dataset.pz) || 0; // default to 0 if not provided
+        console.log("Target:", x, y);
+        sphereTarget.set(x, y, 0);
+        cameraZTarget.z = z; // zoom in when section is in view
+      }
+    });
+  },
+  {
+    threshold: 0.6,
+  },
+);
+
+sections.forEach((sec) => observer.observe(sec));

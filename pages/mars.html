@@ -9,7 +9,7 @@
     />
     <link rel="stylesheet" href="../style.css" />
     <script src="../script.js" defer></script>
-    <script src="../three.js" type="module" defer></script>
+    <script src="../three.js" type="module"></script>
     <title>Mars</title>
   </head>
   <!-- data displays only mars -->
@@ -23,7 +23,7 @@
         <ul class="nav-links">
           <li><a href="../pages/home-page.html">Home</a></li>
           <li><a href="../pages/moon.html">Moon</a></li>
-          <li><a href="../pages/">Mars</a></li>
+          <li><a href="../pages/mars.html">Mars</a></li>
           <li><a href="../pages/contacts.html">Contact</a></li>
         </ul>
       </nav>
@@ -32,6 +32,19 @@
         <i class="bi bi-moon"></i>
       </button>
     </div>
-    <h1>Mars</h1>
+    <!-- p stands for position [x,y,z] -->
+    <section class="sections section-1" data-px="0" data-py="0" data-pz="10">
+      <div class="planet-content">
+        <h1>Mars</h1>
+      </div>
+    </section>
+    <section class="sections" data-px="2" data-py="0" data-pz="5.5">
+      <div class="planet-content">
+        <p>
+          Mars is the forth planet of the solar system that has similar size to
+          earth.
+        </p>
+      </div>
+    </section>
   </body>
 </html>

@@ -27,7 +27,7 @@ window.addEventListener("load", () => {
 // observe when it enters the viewport
 // and add the "animate" class to trigger the animation.
 //  Remove the "animate" class when it leaves the viewport.
-const observer = new IntersectionObserver((entries) => {
+const animationObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     console.log(entry);
     if (entry.isIntersecting) {
@@ -39,4 +39,42 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 const hiddenElements = document.querySelectorAll(".hidden");
-hiddenElements.forEach((el) => observer.observe(el));
+hiddenElements.forEach((el) => animationObserver.observe(el));
+
+// Section observer
+const sections = document.querySelectorAll(".sections");
+
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active"); // unblur when scrolled into view
+      } else {
+        entry.target.classList.remove("active"); // re-blur when scrolled away
+      }
+    });
+  },
+  {
+    threshold: 0.6, // adjust how strict the “focus zone” is
+  },
+);
+
+sections.forEach((section, index) => {
+  if (index !== 0) sectionObserver.observe(section);
+});
+
+// scale animation
+const scaleSection = document.querySelector(".section-1");
+const scaleTitle = document.querySelector(".section-1 h1");
+
+window.addEventListener("scroll", () => {
+  // progress: how far through the section we've scrolled (0 = top, 1 = bottom)
+  // Math.min clamps it to 1 so it never exceeds 100%
+  const progress = Math.min(window.scrollY / scaleSection.offsetHeight, 1);
+
+  // scale grows from 1 (normal) to 8 (huge) as progress goes 0 → 1
+  scaleTitle.style.transform = `scale(${1 + progress * 7})`;
+
+  // opacity drops from 1 (visible) to 0 (invisible), clamped so it never goes negative
+  scaleTitle.style.opacity = Math.max(1 - progress * 1.5, 0);
+});
