@@ -78,3 +78,26 @@ window.addEventListener("scroll", () => {
   // opacity drops from 1 (visible) to 0 (invisible), clamped so it never goes negative
   scaleTitle.style.opacity = Math.max(1 - progress * 1.5, 0);
 });
+
+// run the typewritter animation only when it reaches the next section
+const text = document.querySelector(".planet-content p");
+
+if (text) {
+  const typewritterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("typing");
+          // allows to rerun
+          void entry.target.offsetWidth;
+          entry.target.classList.add("typing");
+        }
+      });
+    },
+    {
+      threshold: 0.6,
+    },
+  );
+
+  typewritterObserver.observe(text);
+}
