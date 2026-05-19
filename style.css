@@ -243,7 +243,7 @@ body {
 
 #mars-button {
   background: rgba(232, 81, 42, 0.12);
-  color: #f47d5e;
+  color: var(--mars);
   border: 1px solid rgba(232, 81, 42, 0.3);
 }
 
@@ -307,11 +307,50 @@ body {
 .planet-content p {
   align-self: flex-start;
   max-width: 600px;
+  font: var(--main-font);
   color: var(--text-secondary);
   line-height: 1.6;
-  font-size: 20px;
+  font-size: 36px;
+  margin-top: 200px;
   margin-left: -900px;
 }
+
+/* highlight */
+.highlight {
+  color:white;
+  font: var(--main-font);
+}
+
+
+/* Circle */
+.circle {
+  background-color: var(--mars);
+  width:400px;
+  height: 400px;
+  border: 5px solid black;
+  margin: 25px;
+  margin-left: -900px;
+  margin-bottom: 900px;
+  padding: 50px;
+  border-radius: 100%;
+}
+
+.information-container {
+  display: grid;
+   grid-auto-flow: column;
+    grid-auto-columns: 300px;
+   gap:30px;
+    width: 100%;
+    margin-top:40px;
+}
+
+.information-box{
+  background: white;
+  border: 1px solid black;
+  border-radius: 55px;
+  overflow: hidden;
+}
+
 
 /* ── Animations ── */
 .hidden {
