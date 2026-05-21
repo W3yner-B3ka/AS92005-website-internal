@@ -12,11 +12,10 @@
     <script src="../three.js" type="module"></script>
     <title>Mars</title>
   </head>
-  <!-- data displays only mars -->
+
   <body data-planet="mars">
-    <!-- 3d canvas -->
     <canvas id="scene"></canvas>
-    <!-- Header for the top of the navigation -->
+
     <div class="header-navigation">
       <h2 class="navigation">Lunara</h2>
       <nav>
@@ -26,46 +25,123 @@
           <li><a href="../pages/mars.html">Mars</a></li>
         </ul>
       </nav>
-      <!-- Change-theme button -->
-      <button id="theme-toggle" aria-label="Toggle theme">
-        <i class="bi bi-moon"></i>
-      </button>
     </div>
-    <!-- p stands for position [x,y,z] -->
+
+    <!-- Section 1: Title -->
     <section class="sections section-1" data-px="0" data-py="0" data-pz="10">
       <div class="planet-content">
         <h1>Mars</h1>
       </div>
     </section>
+
+    <!-- Section 2: Intro text -->
     <section class="sections" data-px="2" data-py="0" data-pz="5.5">
       <div class="planet-content">
-        <p>
-          Mars is the forth planet of the solar system that has similar size and surface of earth. The diameter of mars is around
-           </p>
+        <p class="reveal-text">
+          Mars is the fourth planet of the solar system with a similar size and
+          surface to Earth. Its diameter is around 6,779km.
         </p>
-        <!-- Circle diagram This will display -->
-         <div class="circle">
-          <span class="highlight">6792.38km</span>
-         </div>
       </div>
     </section>
-      <section class="sections section-3" data-px="0" data-py="0" data-pz="10">
-        <div class="planet-content">
-          <!-- Boxes -->
-           <div class="information-container">
-            <div class="information-box">
-              <p>
-                Gravity: 38% of Earth (3.71N per killogram)
-              </p>
-            </div>
-            <div class="information-box">
-              <p>Atmosphere: Thin CO2</p>
-            </div>
-            <div class="information-box">
-              <p>Day-length: 24.6 Hours (This is similar to Earth)</p>
-            </div>
-           </div>
+
+    <!-- Section 3: Info boxes -->
+    <section class="sections section-3" data-px="0" data-py="0" data-pz="10">
+      <div class="planet-content">
+        <div class="information-container">
+          <div class="information-box">
+            <i class="bi bi-arrow-down-circle box-icon"></i>
+            <p class="box-label">Gravity</p>
+            <p class="box-value">3.71 m/s²</p>
+            <p class="box-sub">38% of Earth's gravity</p>
+          </div>
+
+          <div class="information-box">
+            <i class="bi bi-cloud box-icon"></i>
+            <p class="box-label">Atmosphere</p>
+            <p class="box-value">95% CO₂</p>
+            <p class="box-sub">Thin, unbreathable air</p>
+          </div>
+
+          <div class="information-box">
+            <i class="bi bi-clock box-icon"></i>
+            <p class="box-label">Day Length</p>
+            <p class="box-value">24.6 hrs</p>
+            <p class="box-sub">Close to an Earth day</p>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
+
+    <!-- Next sections are information about surfaces -->
+    <!-- Section 4: Red Dust -->
+    <section
+      class="sections surface-section"
+      data-px="1.8"
+      data-py="0.3"
+      data-pz="3.5"
+    >
+      <div class="surface-text">
+        <div class="surface-entry">
+          <span class="surface-num">01</span>
+          <h2 class="surface-title">Red<br />Dust</h2>
+        </div>
+        <p class="surface-desc">
+          The surface of Mars is full of iron oxide — fine rust particles that
+          scatter sunlight. This results in the red atmosphere.
+        </p>
+        <div class="surface-stat">
+          <span class="stat-value">500M</span>
+          <span class="stat-label">km² of rust-red terrain</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Mountains -->
+    <section
+      class="sections surface-section"
+      data-px="-1.8"
+      data-py="-0.8"
+      data-pz="3.5"
+    >
+      <div class="surface-text">
+        <div class="surface-entry">
+          <span class="surface-num">02</span>
+          <h2 class="surface-title">Mountains</h2>
+        </div>
+        <p class="surface-desc">
+          Olympus Mons is the tallest volcano in the solar system. Its base is
+          so wide it could cover France entirely. Its peak pierces the upper
+          atmosphere at 21 kilometres high.
+        </p>
+        <div class="surface-stat">
+          <span class="stat-value">21km</span>
+          <span class="stat-label">above the Martian surface</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Valleys -->
+    <section
+      class="sections surface-section"
+      data-px="0.5"
+      data-py="1.0"
+      data-pz="3.5"
+    >
+      <div class="surface-text">
+        <div class="surface-entry">
+          <span class="surface-num">03</span>
+          <h2 class="surface-title">Valleys</h2>
+        </div>
+        <p class="surface-desc">
+          Valles Marineris stretches 4,000km across the Martian surface — long
+          enough to span the entire United States. A canyon so deep it could
+          swallow the Grand Canyon ten times over.
+        </p>
+        <div class="surface-stat">
+          <span class="stat-value">7km</span>
+          <span class="stat-label">deep at its lowest point</span>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
