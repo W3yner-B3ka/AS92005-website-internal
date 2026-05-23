@@ -21,6 +21,25 @@
   --title-font: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
   --transition: all 0.35s ease;
   --text-animation: fadeUp 0.8s ease 0.3s forwards;
+
+  /* Default planet accent (fallback) */
+  --accent-planet: #4a7eff;
+  --accent-planet-glow: rgba(74, 126, 255, 0.6);
+  --accent-planet-subtle: rgba(74, 126, 255, 0.12);
+}
+
+/* ── Planet themes ── */
+
+.theme-mars {
+  --accent-planet: #e8512a;
+  --accent-planet-glow: rgba(232, 81, 42, 0.6);
+  --accent-planet-subtle: rgba(232, 81, 42, 0.12);
+}
+
+.theme-moon {
+  --accent-planet: #c8cfe0;
+  --accent-planet-glow: rgba(200, 207, 224, 0.6);
+  --accent-planet-subtle: rgba(200, 207, 224, 0.12);
 }
 
 * {
@@ -108,7 +127,7 @@ body {
   left: 0;
   width: 0px;
   height: 1px;
-  background: var(--accent);
+  background: var(--accent-planet);
   transition: var(--transition);
 }
 
@@ -295,7 +314,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(232, 81, 42, 0.6),
+    var(--accent-planet-glow),
     transparent
   );
   animation: scan 4s linear infinite;
@@ -319,23 +338,23 @@ body {
 /* ── Glow number ── */
 
 .glow-number {
-  color: var(--mars);
+  color: var(--accent-planet);
   font-weight: 700;
   letter-spacing: 1px;
-  text-shadow: 0 0 8px rgba(232, 81, 42, 0.8), 0 0 24px rgba(232, 81, 42, 0.4),
-    0 0 48px rgba(232, 81, 42, 0.2);
+  text-shadow: 0 0 8px var(--accent-planet-glow),
+    0 0 24px var(--accent-planet-subtle), 0 0 48px var(--accent-planet-subtle);
   animation: pulse-glow 3s ease-in-out infinite;
 }
 
 @keyframes pulse-glow {
   0%,
   100% {
-    text-shadow: 0 0 8px rgba(232, 81, 42, 0.8), 0 0 24px rgba(232, 81, 42, 0.4),
-      0 0 48px rgba(232, 81, 42, 0.2);
+    text-shadow: 0 0 8px var(--accent-planet-glow),
+      0 0 24px var(--accent-planet-subtle), 0 0 48px var(--accent-planet-subtle);
   }
   50% {
-    text-shadow: 0 0 12px rgba(232, 81, 42, 1), 0 0 40px rgba(232, 81, 42, 0.7),
-      0 0 80px rgba(232, 81, 42, 0.3);
+    text-shadow: 0 0 12px var(--accent-planet),
+      0 0 40px var(--accent-planet-glow), 0 0 80px var(--accent-planet-subtle);
   }
 }
 
@@ -392,7 +411,7 @@ body {
 
 .box-icon {
   font-size: 22px;
-  color: var(--mars);
+  color: var(--accent-planet);
   margin-bottom: 16px;
   display: block;
   opacity: 0.85;
@@ -482,7 +501,7 @@ body {
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.2em;
-  color: var(--mars);
+  color: var(--accent-planet);
   opacity: 0.8;
   line-height: 1;
   margin-bottom: 6px;
@@ -522,7 +541,7 @@ body {
   font-size: 36px;
   font-weight: 300;
   letter-spacing: -1px;
-  color: var(--mars);
+  color: var(--accent-planet);
 }
 
 .stat-label {
