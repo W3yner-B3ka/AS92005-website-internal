@@ -11,8 +11,11 @@ const sections = document.querySelectorAll(".sections");
 const sphereTarget = new THREE.Vector3(0, 0, 0);
 const cameraZTarget = { z: 10 };
 
+// Generate the new scene
 const scene = new THREE.Scene();
 
+
+// Initiate the camera
 const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
@@ -22,6 +25,7 @@ const camera = new THREE.PerspectiveCamera(
 
 camera.position.z = 10;
 
+// Initiate the renderer
 const renderer = new THREE.WebGLRenderer({
   canvas,
   antialias: true,
@@ -83,6 +87,7 @@ function addStar() {
 
   const star = new THREE.Mesh(geometry, material);
 
+    // Define a set of coordinates within the page and randomly plot stars
   const [x, y, z] = Array(3)
     .fill()
     .map(() => THREE.MathUtils.randFloatSpread(100));
@@ -109,7 +114,7 @@ function animate() {
 }
 animate();
 
-// Observer
+// Observer for positioning within the different sections. Different sections would display different coordinates.
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {

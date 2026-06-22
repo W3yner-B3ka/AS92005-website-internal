@@ -16,7 +16,9 @@
     <canvas id="scene"></canvas>
     <!-- Header for the top of the navigation -->
     <div class="header-navigation">
-      <h2 class="navigation">Lunara</h2>
+      <h2 class="navigation">
+          <img src="../images/SMC logo.png" alt="SMC_Logo" width="100" height="100"/>
+      </h2>
       <nav>
         <ul class="nav-links">
           <li><a href="../pages/home-page.html">Home</a></li>
@@ -24,10 +26,6 @@
           <li><a href="../pages/mars.html">Mars</a></li>
         </ul>
       </nav>
-      <!-- Change-theme button -->
-      <button id="theme-toggle" aria-label="Toggle theme">
-        <i class="bi bi-moon"></i>
-      </button>
     </div>
     <!-- P is for position, [x,y,z] -->
     <section class="sections section-1" data-px="0" data-py="0" data-pz="10">
@@ -37,7 +35,116 @@
     </section>
     <section class="sections section-2" data-px="2" data-py="0" data-pz="5.5">
       <div class="planet-content">
-        <p>The moon</p>
+        <p class="reveal-text">
+          The Earth's moon is the fifth largest moon in the Solar System. It's
+          diameter is around 3474km, a quarter size of the Earth.
+        </p>
+      </div>
+    </section>
+    <!-- Info boxes -->
+    <section class="sections section-3" data-px="0" data-py="0" data-pz="10">
+      <div class="planet-content">
+        <div class="information-container">
+          <!-- Gravity -->
+          <div class="information-box">
+            <i class="bi bi-arrow-down-circle box-icon"></i>
+            <p class="box-label">Gravity</p>
+            <p class="box-value">1.62 m/s²</p>
+            <p class="box-sub">17% of Earth's gravity</p>
+          </div>
+          <!-- Atmosphere -->
+          <div class="information-box">
+            <i class="bi bi-cloud box-icon"></i>
+            <p class="box-label">Atmosphere</p>
+            <p class="box-value">Exosphere</p>
+            <p class="box-sub">Virtually no atmosphere</p>
+          </div>
+          <!-- Day-length -->
+          <div class="information-box">
+            <i class="bi bi-clock box-icon"></i>
+            <p class="box-label">Day Length</p>
+            <p class="box-value">29.5 days</p>
+            <p class="box-sub">Same as its orbital period</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Craters -->
+    <section
+      class="sections surface-section"
+      data-px="1.8"
+      data-py="0.3"
+      data-pz="3.5"
+    >
+      <div class="surface-text">
+        <div class="surface-entry">
+          <span class="surface-num">01</span>
+          <h2 class="surface-title">Craters</h2>
+        </div>
+        <p class="surface-desc">
+          The Moon's surface is scarred by billions of years of meteorite
+          impacts. Without weather or tectonic activity to erode them, these
+          craters are preserved exactly as they formed — some stretching
+          hundreds of kilometres across.
+        </p>
+        <div class="surface-stat">
+          <span class="stat-value">300K+</span>
+          <span class="stat-label">craters wider than 1km</span>
+        </div>
+      </div>
+    </section>
+    <!-- Section 7: Water Ice at Poles -->
+    <section
+      class="sections surface-section"
+      data-px="0.5"
+      data-py="1.0"
+      data-pz="3.5"
+    >
+      <div class="surface-text">
+        <div class="surface-entry">
+          <span class="surface-num">02</span>
+          <h2 class="surface-title">Water Ice<br />At Poles</h2>
+        </div>
+        <p class="surface-desc">
+          Permanently shadowed craters near the lunar poles trap water ice,
+          untouched by sunlight for billions of years. Sitting at temperatures
+          as low as −240°C, these cold pockets are among the coldest places in
+          the solar system — and one of the most promising resources for any
+          future lunar base.
+        </p>
+        <div class="surface-stat">
+          <span class="stat-value">−240°C</span>
+          <span class="stat-label">coldest points on the Moon</span>
+        </div>
+      </div>
+    </section>
+    <!-- Section 8: Potential Resources -->
+    <section
+      class="sections surface-section"
+      data-px="0.8"
+      data-py="0.6"
+      data-pz="3.5"
+    >
+      <div class="surface-text">
+        <div class="surface-entry">
+          <span class="surface-num">03</span>
+          <h2 class="surface-title">Potential<br />Resources</h2>
+        </div>
+        <p class="surface-desc">
+          The Moon holds a wealth of materials critical for future space
+          exploration. Polar water ice could be split into hydrogen fuel and
+          breathable oxygen. The regolith is rich in helium-3, a rare isotope
+          with potential for nuclear fusion. Titanium, aluminium, and silicon
+          are abundant across the surface — raw materials for building.
+        </p>
+        <div class="surface-stat">
+          <span class="stat-value">He-3</span>
+          <span class="stat-label">fusion fuel embedded in the soil</span>
+        </div>
+      </div>
+       <!-- Credits and made by -->
+      <div class="moon-footer">
+          <p class="footer-paragraphs">Made by Sancta Maria Space club</p>
       </div>
     </section>
   </body>
